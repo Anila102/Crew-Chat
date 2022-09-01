@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<style>
+    /* body {
+        height: 100vh; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } */
+
+    /* .parent-box {
+        min-width: 800px;
+        border: solid 1px #eee;
+        border-radius: 5px;
+        padding: 50px;
+    } */
+
+    /* .header {
+        display: flex;
+        justify-content: space-between;
+    } */
+
+    #messages {
+        margin: auto;
+        margin-top: 20px;
+        border: solid 1px #eee;
+        border-radius: 5px;
+        padding: 10px;
+        /* float: left; */
+        width: 90%;
+        max-height: 600px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border: 1px solid #00203fff;
+            
+    }
+
+    .single-message-body {
+        position: relative;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        width: 51%;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        margin: 13px 0;
+    }
+
+    .single-message-body.sender {
+        float: right;
+        background-color: #ADEFD1FF;
+        color: #00203fff;
+    }
+
+    .single-message-body.reciever {
+        float: left;
+        background-color: #00203fff;
+        color: #ADEFD1FF;
+    }
+
+    .message-sender {
+        position: absolute;
+        top: -18px;
+        background-color: #00203fff;
+        color: #ADEFD1FF;
+        padding: 3px;
+        border-radius: 5px;
+    }
+
+    .single-message-body.sender>.message-sender {
+        right : 10px;
+        background-color: #00203fff;
+        color: #ADEFD1FF;
+    }
+
+    .single-message-body.reciever>.message-sender {
+        left: 10px;
+        background-color: #ADEFD1FF;
+        color: #00203fff;
+    }
+    .text-box{
+        width: 90%;
+        margin: auto;
+    }
+    #message {
+        margin-top: 10px;
+        width: 84%;
+        display: inline-block;
+        padding: 5px;
+        border: 1px solid #00203fff;
+    }
+
+    .send-button {
+        background-color: #00203fff;
+        color: #ADEFD1FF;
+        padding: 5px;
+        margin: 10px 0;
+        width: 15%;
+        float: right;
+        border-radius: 10px;
+    }
+
+    .logout,
+    .login,
+    .signup {
+        background-color: #00203fff;
+        color: #ADEFD1FF;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand " href="#">Crew Chat</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+
+
+                </ul>
+                
+ 
+            </div>
+            <button style="border: black; color:  rgb(255, 255, 255); background-color:rgb(14, 114, 14)" onclick="logOut()" type="button" class="btn btn-light">Log Out</button>
+        </div>
+    </nav>
+    
+</div>
+
+
+    <div class="container" id="messages">
+
+    </div>
+    <div class="text-box">
+        <input type="text" id="message" placeholder="Type Message">
+        <button onclick="sendMessage()" class="send-button">Send</button>
+    </div>
+
+
+
+</div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
