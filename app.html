@@ -34,14 +34,15 @@
         margin: auto;
         margin-top: 20px;
         border: solid 1px #eee;
-        border-radius: 5px;
+        border-radius: 8px;
         padding: 10px;
         /* float: left; */
         width: 90%;
         max-height: 600px;
         overflow-y: scroll;
         overflow-x: hidden;
-        border: 1px solid #00203fff;
+        border: 1px solid rgb(91, 91, 92);
+        background-color: rgb(16, 16, 17);
             
     }
 
@@ -59,38 +60,45 @@
 
     .single-message-body.sender {
         float: right;
-        background-color: #ADEFD1FF;
-        color: #00203fff;
+        background-color: rgb(30, 57, 99);
+        color: rgb(255, 255, 255);
+        border: 2px white;
     }
 
     .single-message-body.reciever {
         float: left;
-        background-color: #00203fff;
-        color: #ADEFD1FF;
+        background-color: rgb(110, 110, 110);
+        color: rgb(255, 255, 255);
     }
 
     .message-sender {
         position: absolute;
-        top: -18px;
-        background-color: #00203fff;
+        top: -20px;
+        background-color: rgb(49 70 169);
         color: #ADEFD1FF;
         padding: 3px;
         border-radius: 5px;
     }
 
     .single-message-body.sender>.message-sender {
+        font-style: italic;
+        padding: 4px;
         right : 10px;
-        background-color: #00203fff;
-        color: #ADEFD1FF;
+        background-color:rgb(110, 110, 110);
+        color: white;
     }
 
     .single-message-body.reciever>.message-sender {
         left: 10px;
-        background-color: #ADEFD1FF;
-        color: #00203fff;
+        background-color: rgb(30, 57, 99);
+        color: rgb(250, 250, 250);
+        padding-right: 8px;
+        padding-left:8px;
+        font-style: italic;     
+
     }
     .text-box{
-        width: 90%;
+        width: 84%;
         margin: auto;
     }
     #message {
@@ -98,12 +106,12 @@
         width: 84%;
         display: inline-block;
         padding: 5px;
-        border: 1px solid #00203fff;
+        /* border: 1px solid rgb(30, 57, 99); */
     }
 
     .send-button {
-        background-color: #00203fff;
-        color: #ADEFD1FF;
+        background-color: rgb(30, 57, 99);
+        color: rgb(254, 255, 254);
         padding: 5px;
         margin: 10px 0;
         width: 15%;
@@ -114,8 +122,8 @@
     .logout,
     .login,
     .signup {
-        background-color: #00203fff;
-        color: #ADEFD1FF;
+        background-color: rgb(30, 57, 99);
+        color: rgb(252, 252, 252);
         padding: 5px;
         border-radius: 5px;
     }
@@ -138,7 +146,7 @@
                 
  
             </div>
-            <button style="border: black; color:  rgb(255, 255, 255); background-color:rgb(14, 114, 14)" onclick="logOut()" type="button" class="btn btn-light">Log Out</button>
+            <button style="border:2px white; color:  rgb(255, 255, 255); background-color:rgb(30, 57, 99)" onclick="logOut()" type="button" class="btn btn-light">Log Out</button>
         </div>
     </nav>
     
@@ -149,7 +157,7 @@
 
     </div>
     <div class="text-box">
-        <input type="text" id="message" placeholder="Type Message">
+        <input class="typing-box" type="text" id="message" placeholder="Type Message">
         <button onclick="sendMessage()" class="send-button">Send</button>
     </div>
 

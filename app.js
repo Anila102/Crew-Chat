@@ -30,10 +30,9 @@ const loggedIn = () => {
 }
 const signUp = () => {
 
-    let name = document.getElementById("name").value;
+    
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    console.log(email + password +name)
     firebase.auth().createUserWithEmailAndPassword( email, password)
         .then((userCredential) => {
             // Signed in 
@@ -86,8 +85,8 @@ const setData = (user) => {
     firestore.collection('users').doc(user.uid).get().then((querySnapshot) => {
         const data = querySnapshot.data();
         const lastLoggedInAt = data.lastLoggedInAt;
-        const lastLoggedInSpan = document.getElementById("lastLoggedIn");
-        lastLoggedInSpan.innerHTML = lastLoggedInAt;
+        // const lastLoggedInSpan = document.getElementById("lastLoggedIn");
+        // lastLoggedInSpan.innerHTML = lastLoggedInAt;
     });
 }
 
@@ -113,9 +112,20 @@ const sendMessage = () => {
         .catch((error) => {
             console.error("Error adding document: ", error);
         });
+
+    document.getElementById("message").value=" "
 };
 
 const createElementsForMessage = (childData) => {
+
+    // const sendbutton = document.getElementsByClassName('send-button');
+    // sendbutton.addEventListener("click", function() {
+    //     document.getElementsByClassName("typing-box").value=""
+    //   });
+
+    // document.addEventListener("click", function(){
+    //     document.getElementsByClassName("send-button").innerHTML = "";
+    //   });
     const messagesDiv = document.getElementById("messages");
 
     const childDiv = document.createElement('div');
@@ -141,4 +151,5 @@ const createElementsForMessage = (childData) => {
     childDiv.appendChild(senderDiv);
     childDiv.appendChild(messageTextDiv);
     messagesDiv.appendChild(childDiv);
+
 };
